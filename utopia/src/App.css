@@ -7,9 +7,75 @@
   pointer-events: none;
 }
 
+.App-logo-globe {
+  height: 40vmin;
+  pointer-events: none;
+  position: absolute;
+}
+
+
+.App-logo-globe-dot {
+  height: 40vmin;
+  pointer-events: none;
+  position: absolute;
+}
+
+/* Orbital motion for dots around center */
+.orbital-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+}
+
+.orbital-dot {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: red;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  
+}
+
+.orbital-dot.hovered {
+  background-color: rgb(255, 255, 255) !important;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 40s linear;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .App-logo-globe {
+    animation: App-logo-spin infinite 30s linear reverse;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .App-logo-globe-dot {
+    animation: App-logo-spin infinite 50s linear reverse;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Orbital motion animation */
+  .orbital-container {
+    animation: orbital-rotation infinite 20s linear;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Smooth pause/start transitions - maintain position */
+  .orbital-container.paused,
+  .App-logo.paused,
+  .App-logo-globe.paused,
+  .App-logo-globe-dot.paused {
+    animation-play-state: paused;
   }
 }
 
@@ -36,5 +102,14 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes orbital-rotation {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
   }
 }
