@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/Utopia/static/css/main.8a6cbf1e.css",
+    "main.js": "/Utopia/static/js/main.a274878a.js",
+    "static/js/453.60e0813f.chunk.js": "/Utopia/static/js/453.60e0813f.chunk.js",
+    "static/media/Frame.svg": "/Utopia/static/media/Frame.9296f8d3c23b40a22f15a28e0d0e3806.svg",
+    "static/media/ditherKnight.svg": "/Utopia/static/media/ditherKnight.de2f1414472ff6885830e02e086c61ff.svg",
+    "static/media/UTOPIA.svg": "/Utopia/static/media/UTOPIA.55e39d70da23116e0ce29e7c0228e3f1.svg",
+    "static/media/redGlobe.svg": "/Utopia/static/media/redGlobe.2cdf4d0bc149d12f2960ad875aafad47.svg",
+    "index.html": "/Utopia/index.html",
+    "static/media/Ellipse 11.svg": "/Utopia/static/media/Ellipse 11.6c4e30af449268e38de4bebbf7b7a175.svg",
+    "static/media/Ellipse 13.svg": "/Utopia/static/media/Ellipse 13.d4b687cc67f3effbbba043058bb1acfa.svg",
+    "static/media/Ellipse 15.svg": "/Utopia/static/media/Ellipse 15.abfc71d8263964245946de7bbdea1a2c.svg",
+    "static/media/Ellipse 14.svg": "/Utopia/static/media/Ellipse 14.6ba1616c93047a86f02efced602fa627.svg",
+    "static/media/Ellipse 12.svg": "/Utopia/static/media/Ellipse 12.6c11c28b9e39dc60ba4c18dc8603ba3f.svg",
+    "static/media/Ellipse 10.svg": "/Utopia/static/media/Ellipse 10.d74cb9917c4157cef2b8530a5c20e1a2.svg",
+    "main.8a6cbf1e.css.map": "/Utopia/static/css/main.8a6cbf1e.css.map",
+    "main.a274878a.js.map": "/Utopia/static/js/main.a274878a.js.map",
+    "453.60e0813f.chunk.js.map": "/Utopia/static/js/453.60e0813f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8a6cbf1e.css",
+    "static/js/main.a274878a.js"
+  ]
+}
