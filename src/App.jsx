@@ -9,6 +9,7 @@ import ellipse13 from "./Ellipse 13.svg";
 import ellipse14 from "./Ellipse 14.svg";
 import ellipse15 from "./Ellipse 15.svg";
 import utopiaLogo from "./UTOPIA.svg";
+import frame from "./Frame.svg";
 
 import "./App.css";
 
@@ -21,11 +22,11 @@ export default function App() {
   const snakes = useRef([]);
 
   // 🔧 Tunable constants
-  const GRID = 50;
-  const TRAIL_LENGTH = 10;
-  const MOVE_DELAY = 12;  // higher = slower (move once every N frames)
+  const GRID = 15;
+  const TRAIL_LENGTH = 5;
+  const MOVE_DELAY = 15; // higher = slower (move once every N frames)
   const WAVE_FREQ = 10;
-  const WAVE_AMP = 3;
+  const WAVE_AMP = 2;
 
   const onFlip = () => {
     const nextDeg = flipDeg + 180;
@@ -50,7 +51,10 @@ export default function App() {
 
     function getCoinCenter() {
       if (!coinRef.current) {
-        return { x: snap(window.innerWidth / 2), y: snap(window.innerHeight / 2) };
+        return {
+          x: snap(window.innerWidth / 2),
+          y: snap(window.innerHeight / 2),
+        };
       }
       const rect = coinRef.current.getBoundingClientRect();
       return {
@@ -105,6 +109,39 @@ export default function App() {
     };
   }, [snakesActive]);
 
+
+// 🔴 NEW EFFECT: spawn snakes right after flip (with slight delay)
+useEffect(() => {
+  if (snakesActive) {
+    const timeout = setTimeout(() => {
+      const snap = (v) => Math.round(v / GRID) * GRID;
+
+      function getCoinCenter() {
+        if (!coinRef.current) {
+          return {
+            x: snap(window.innerWidth / 2),
+            y: snap(window.innerHeight / 2),
+          };
+        }
+        const rect = coinRef.current.getBoundingClientRect();
+        return {
+          x: snap(rect.left + rect.width / 2),
+          y: snap(rect.top + rect.height / 2),
+        };
+      }
+
+      for (let i = 0; i < 1; i++) {
+        const { x, y } = getCoinCenter();
+        const angle = Math.random() * 2 * Math.PI;
+        snakes.current.push({ x, y, baseAngle: angle, t: 0, path: [] });
+      }
+    }, ); // ⏱ 50 ms delay
+
+    return () => clearTimeout(timeout);
+  }
+}, [snakesActive]);
+
+
   return (
     <div className="App">
       <header className="Stage">
@@ -116,23 +153,62 @@ export default function App() {
         >
           {/* FRONT */}
           <div className="spin spin--knight">
-            <img src={ditherKnight} alt="knight" className="flip flip--knight" />
+            <img
+              src={ditherKnight}
+              alt="knight"
+              className="flip flip--knight"
+            />
           </div>
           <div className="spin spin--globe">
             <img src={redGlobe} alt="globe" className="flip flip--globe" />
           </div>
           <div className="spin spin--globe">
-            <img src={ellipse10} alt="ellipse10" className="flip flip--ellipse" style={{ width: "5px" }} />
-            <img src={ellipse11} alt="ellipse11" className="flip flip--ellipse" style={{ width: "530px" }} />
-            <img src={ellipse12} alt="ellipse12" className="flip flip--ellipse" style={{ width: "540px" }} />
-            <img src={ellipse13} alt="ellipse13" className="flip flip--ellipse" style={{ width: "550px" }} />
-            <img src={ellipse14} alt="ellipse14" className="flip flip--ellipse" style={{ width: "560px" }} />
-            <img src={ellipse15} alt="ellipse15" className="flip flip--ellipse" style={{ width: "570px" }} />
+            <img
+              src={ellipse10}
+              alt="ellipse10"
+              className="flip flip--ellipse"
+              style={{ width: "5px" }}
+            />
+            <img
+              src={ellipse11}
+              alt="ellipse11"
+              className="flip flip--ellipse"
+              style={{ width: "530px" }}
+            />
+            <img
+              src={ellipse12}
+              alt="ellipse12"
+              className="flip flip--ellipse"
+              style={{ width: "540px" }}
+            />
+            <img
+              src={ellipse13}
+              alt="ellipse13"
+              className="flip flip--ellipse"
+              style={{ width: "550px" }}
+            />
+            <img
+              src={ellipse14}
+              alt="ellipse14"
+              className="flip flip--ellipse"
+              style={{ width: "560px" }}
+            />
+            <img
+              src={ellipse15}
+              alt="ellipse15"
+              className="flip flip--ellipse"
+              style={{ width: "570px" }}
+            />
           </div>
           {/* BACK */}
-          <div className="back-face">
-            <div className="flip flip--back red-circle" />
-          </div>
+            <div className="back-face">
+              <img
+                src={frame}
+                alt="frame"
+                className="flip flip--back back-frame"
+              />
+            </div>
+
           {/* BRAND */}
           <div className="brand">
             <img src={utopiaLogo} alt="UTOPIA" />
