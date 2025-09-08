@@ -22,10 +22,10 @@ export default function App() {
   const snakes = useRef([]);
 
   // 🔧 Tunable constants
-  const GRID = 15;
-  const TRAIL_LENGTH = 5;
-  const MOVE_DELAY = 15; // higher = slower (move once every N frames)
-  const WAVE_FREQ = 10;
+  const GRID = 50;
+  const TRAIL_LENGTH = 6;
+  const MOVE_DELAY = 20; // higher = slower (move once every N frames)
+  const WAVE_FREQ = 2;
   const WAVE_AMP = 2;
 
   const onFlip = () => {
@@ -201,13 +201,54 @@ useEffect(() => {
             />
           </div>
           {/* BACK */}
-            <div className="back-face">
+            <div className="spin spin--frame">
               <img
                 src={frame}
                 alt="frame"
                 className="flip flip--back back-frame"
               />
             </div>
+
+            {/* BACK ELLIPSES */}
+          <div className="spin spin--globe">
+            <img
+              src={ellipse10}
+              alt="ellipse10-back"
+              className="flip flip--back flip--ellipse"
+              style={{ width: "500px" }}
+            />
+            <img
+              src={ellipse11}
+              alt="ellipse11-back"
+              className="flip flip--back flip--ellipse"
+              style={{ width: "530px" }}
+            />
+            <img
+              src={ellipse12}
+              alt="ellipse12-back"
+              className="flip flip--back flip--ellipse"
+              style={{ width: "540px" }}
+            />
+            <img
+              src={ellipse13}
+              alt="ellipse13-back"
+              className="flip flip--back flip--ellipse"
+              style={{ width: "550px" }}
+            />
+            <img
+              src={ellipse14}
+              alt="ellipse14-back"
+              className="flip flip--back flip--ellipse"
+              style={{ width: "560px" }}
+            />
+            <img
+              src={ellipse15}
+              alt="ellipse15-back"
+              className="flip flip--back flip--ellipse"
+              style={{ width: "570px" }}
+            />
+          </div>
+
 
           {/* BRAND */}
           <div className="brand">

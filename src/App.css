@@ -44,6 +44,11 @@
   animation-direction: reverse;
 }
 
+.spin--frame {
+  animation: spinZ 35s linear infinite;
+  animation-direction: normal; /* or reverse, depending on desired direction */
+}
+
 /* Shared flip styles */
 .flip {
   position: absolute;
@@ -88,7 +93,7 @@
   width: var(--coin-size);
   height: var(--coin-size);
   border-radius: 50%;
-  background: rgb(230, 41, 41);
+  background: rgb(185, 11, 11);
   position: absolute;
 }
 
@@ -102,6 +107,11 @@
   pointer-events: none;
   image-rendering: pixelated;
   z-index: 0;
+}
+
+
+.back-frame {
+  filter: drop-shadow(0px 10px 30px rgba(189, 80, 80, 0.35));
 }
 
 /* Brand overlay */
