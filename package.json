@@ -1,7 +1,7 @@
 {
   "name": "utopia",
   "version": "0.1.0",
-  "homepage": "https://<Ruzhuu>.github.io/<Utopia>",
+  "homepage": "https://<ruzhuu>.github.io/<Utopia>",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
